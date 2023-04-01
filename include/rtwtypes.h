@@ -24,12 +24,12 @@ extern "C" {
 
 /*=======================================================================*
  * Target hardware information
- *   Device type: Intel->x86-64 (Linux 64)
+ *   Device type: Generic->Custom
  *   Number of bits:     char:   8    short:   16    int:  32
- *                       long:  64
- *                       native word size:  64
- *   Byte ordering: LittleEndian
- *   Signed integer division rounds to: Zero
+ *                       long:  32
+ *                       native word size:  32
+ *   Byte ordering: Unspecified
+ *   Signed integer division rounds to: Undefined
  *   Shift right on a signed integer as arithmetic shift: on
  *=======================================================================*/
 
@@ -45,8 +45,6 @@ typedef short int16_T;
 typedef unsigned short uint16_T;
 typedef int int32_T;
 typedef unsigned int uint32_T;
-typedef long int64_T;
-typedef unsigned long uint64_T;
 typedef float real32_T;
 typedef double real64_T;
 
@@ -113,16 +111,6 @@ typedef struct {
   uint32_T im;
 } cuint32_T;
 
-typedef struct {
-  int64_T re;
-  int64_T im;
-} cint64_T;
-
-typedef struct {
-  uint64_T re;
-  uint64_T im;
-} cuint64_T;
-
 /*=======================================================================*
  * Min and Max:                                                          *
  *   int8_T, int16_T, int32_T     - signed 8, 16, or 32 bit integers     *
@@ -141,10 +129,6 @@ typedef struct {
 #define MIN_int32_T ((int32_T)(-2147483647 - 1))
 #define MAX_uint32_T ((uint32_T)(0xFFFFFFFFU))
 #define MIN_uint32_T ((uint32_T)(0))
-#define MAX_int64_T ((int64_T)(9223372036854775807L))
-#define MIN_int64_T ((int64_T)(-9223372036854775807L - 1L))
-#define MAX_uint64_T ((uint64_T)(0xFFFFFFFFFFFFFFFFUL))
-#define MIN_uint64_T ((uint64_T)(0UL))
 
 /* Logical type definitions */
 #if (!defined(__cplusplus)) && (!defined(__true_false_are_keywords)) &&        \
